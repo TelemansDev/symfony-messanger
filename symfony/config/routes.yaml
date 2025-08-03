@@ -1,0 +1,4 @@
+# Jeśli używasz routingu opartego na atrybutach, to nie musisz dodawać tras tutaj.
+controllers:
+  resource: '../src/Controller/'
+  type: annotation
