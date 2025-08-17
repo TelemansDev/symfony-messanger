@@ -4,7 +4,16 @@ declare(strict_types=1);
 
 namespace App\Message;
 
-class AddPonkaToImage
-{
+use App\Entity\ImagePost;
 
+readonly class AddPonkaToImage
+{
+    public function __construct(
+        private ImagePost $imagePost,
+    ) {}
+
+    public function getImagePost(): ImagePost
+    {
+        return $this->imagePost;
+    }
 }
