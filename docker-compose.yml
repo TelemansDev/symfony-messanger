@@ -18,6 +18,9 @@ services:
       - APP_ENV=dev
     volumes:
       - ./symfony/:/var/www/symfony/
+    command: >
+      sh -c "php-fpm &
+      php /var/www/symfony/bin/console messenger:consume async -vv"
     networks:
       - symfony
     depends_on:
