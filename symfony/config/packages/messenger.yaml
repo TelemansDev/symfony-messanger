@@ -18,6 +18,11 @@ framework:
              'App\Message\AddPonkaToImage': async
              'App\Message\DeletePhotoFile': async
 
+        buses:
+          messenger.bus.default:
+            middleware:
+              - App\Messenger\Middleware\AuditMiddleware
+
 # when@test:
 #    framework:
 #        messenger:
