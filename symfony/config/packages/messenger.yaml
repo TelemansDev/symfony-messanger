@@ -10,12 +10,18 @@ framework:
               options:
                 check_delayed_interval: 1000
 
+            async_priority_high:
+              dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+              options:
+                queue_name: high
+                check_delayed_interval: 1000
+
             failed: 'doctrine://default?queue_name=failed'
             # sync: 'sync://'
 
         routing:
             # Route your messages to the transports
-             'App\Message\AddPonkaToImage': async
+             'App\Message\AddPonkaToImage': async_priority_high
              'App\Message\DeletePhotoFile': async
 
         buses:
